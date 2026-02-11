@@ -1,0 +1,5 @@
+{
+  "name": "Dietary AI Compliance Dashboard",
+  "description": "An AI-powered system for dietary management that automatically detects allergens in menu templates and suggests compliant meal alternatives from company recipe databases.",
+  "requestFramePermissions": []
+}
