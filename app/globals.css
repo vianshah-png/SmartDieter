@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 20px;
+}
+
+/* Conflict Highlight Styles */
+.conflict-highlight {
+  position: relative;
+  font-weight: 600;
+  padding: 2px 4px;
+  border-radius: 3px;
+  cursor: help;
+  transition: all 0.2s ease;
+}
+
+.conflict-highlight.critical {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border-bottom: 2px solid #dc2626;
+}
+
+.conflict-highlight.warning {
+  background-color: #fed7aa;
+  color: #9a3412;
+  border-bottom: 2px solid #ea580c;
+}
+
+.conflict-highlight.info {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border-bottom: 2px solid #3b82f6;
+}
+
+.conflict-highlight:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Tooltip on hover */
+.conflict-highlight:hover::after {
+  content: attr(data-reason);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1f2937;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: normal;
+  white-space: nowrap;
+  z-index: 1000;
+  margin-bottom: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.conflict-highlight:hover::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 4px solid transparent;
+  border-top-color: #1f2937;
+  z-index: 1000;
+}
+
+/* Audit Diet Content Formatting */
+.audit-diet-content {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.audit-diet-content h1,
+.audit-diet-content h2,
+.audit-diet-content h3,
+.audit-diet-content h4 {
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.audit-diet-content h3 {
+  font-size: 13px;
+  color: #3b82f6;
+}
+
+.audit-diet-content ul,
+.audit-diet-content ol {
+  margin-left: 20px;
+  margin-bottom: 12px;
+}
+
+.audit-diet-content li {
+  margin-bottom: 4px;
+}
+
+.audit-diet-content a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.audit-diet-content a:hover {
+  color: #1d4ed8;
+}
